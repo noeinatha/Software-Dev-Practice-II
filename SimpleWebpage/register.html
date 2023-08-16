@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Inria Sans"
+      rel="stylesheet"
+    />
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Simple Craft Event</h1>
+      <ul>
+        <li><a href="homepage.html">HOMEPAGE</a></li>
+        <li><a href="https://www.chula.ac.th/">GUIDE</a></li>
+        <li><a href="https://www.chula.ac.th/">BOOTH TYPE</a></li>
+        <li><a href="https://www.chula.ac.th/">VANUE</a></li>
+        <li><a href="https://www.chula.ac.th/">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div class="regist-form">
+        <h2>REGISTRATION FORM</h2>
+        <ul>
+          <li>
+            <input
+              type="text"
+              id="company_name"
+              name="company_name"
+              placeholder="Company Name"
+              size="20"
+            />
+          </li>
+          <li>
+            <select name="booth_size" id="booth_size">
+              <option value="" disabled selected hidden>Booth Size</option>
+              <option value="size10_10">10x10 feet</option>
+              <option value="size10_15">10x15 feet</option>
+            </select>
+          </li>
+          <li><input type="checkbox" id="table" name="table" />Want table</li>
+          <li>
+            <input
+              type="number"
+              id="chair_needed"
+              name="chair_needed"
+              placeholder="Number of Chair(s)"
+              min="1"
+              max="10"
+            />
+          </li>
+          <li>
+            <input
+              type="text"
+              id="contact_person"
+              name="contact_person"
+              placeholder="Contact Person"
+              size="20"
+            />
+          </li>
+          <li>
+            <input
+              type="text"
+              id="phone_number"
+              name="phone_number"
+              placeholder="Phone Number"
+              size="20"
+            />
+          </li>
+          <li><button class="confirm-button">CONFIRM</button></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h5>CONTACT US</h5>
+        <h5>Tel. xxx-xxx-xxxx</h5>
+      </div>
+    </div>
+  </body>
+</html>
