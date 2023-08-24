@@ -10,10 +10,6 @@ export default function Home() {
         <div
           style={{
             margin: "20px",
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
             alignContent: "space-around",
           }}
         >

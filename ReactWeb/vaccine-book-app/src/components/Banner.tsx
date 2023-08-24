@@ -12,8 +12,8 @@ export default function Banner() {
         objectFit="cover"
       />
       <div className={styles.bannerText}>
-        <h1>บริการฉีดวัคซีน</h1>
-        <h3>โรงพยาบาล Software Development Practice II</h3>
+        <h1>บริการจองวัคซีน</h1>
+        <h3>เครือโรงพยาบาล Software Development Practice II</h3>
       </div>
     </div>
   );
