@@ -1,18 +1,23 @@
-import styles from "@/components/infocard.module.css";
 import Image from "next/image";
 
-export function InfoCard() {
+export function InfoCard({
+  hospitalName,
+  imgSrc,
+}: {
+  hospitalName: string;
+  imgSrc: string;
+}) {
   return (
-    <div className={styles.card}>
-      <div className={styles.cardimg}>
+    <div className="w-1/5 h-[300px] rounded-lg shadow-lg bg-cyan-900">
+      <div className="w-full h-[70%] relative rounded-t-lg">
         <Image
-          src={"/img/info1.jpg"}
+          src={imgSrc}
           alt="Vaccine Infomation"
           fill={true}
-          objectFit="cover"
+          className="object-cover rounded-t-lg"
         />
       </div>
-      <div className={styles.cardtext}>What it Vaccine?</div>
+      <div className="w-full h-[30%] p-[10px] text-white">{hospitalName}</div>
     </div>
   );
 }
