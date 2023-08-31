@@ -12,8 +12,8 @@ export default function Banner() {
         objectFit="cover"
       />
       <div className={styles.bannerText}>
-        <h1>Your Travel Partner</h1>
-        <h3>Travel Your World with Us</h3>
+        <h1 className="text-4xl font-medium">Your Travel Partner</h1>
+        <h3 className="text-xl font-serif">Travel Your World with Us</h3>
       </div>
     </div>
   );

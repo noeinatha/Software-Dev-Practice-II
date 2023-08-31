@@ -18,10 +18,10 @@ export default function Home() {
             alignContent: "space-around",
           }}
         >
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          <ProductCard carName="Honda Civic" imgSrc="/img/civic.jpg" />
+          <ProductCard carName="Honda Accord" imgSrc="/img/accord.jpg" />
+          <ProductCard carName="Toyota Fortuner" imgSrc="/img/fortuner.jpg" />
+          <ProductCard carName="Tesla Modle 3" imgSrc="/img/tesla.jpg" />
         </div>
       </div>
     </main>
