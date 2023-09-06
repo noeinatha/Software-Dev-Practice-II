@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { InteractiveCard } from "./InteractiveCard";
 
 export function InfoCard({
   hospitalName,
@@ -8,7 +9,7 @@ export function InfoCard({
   imgSrc: string;
 }) {
   return (
-    <div className="w-1/5 h-[300px] rounded-lg shadow-lg bg-cyan-900">
+    <InteractiveCard hospitalName={hospitalName}>
       <div className="w-full h-[70%] relative rounded-t-lg">
         <Image
           src={imgSrc}
@@ -17,7 +18,7 @@ export function InfoCard({
           className="object-cover rounded-t-lg"
         />
       </div>
-      <div className="w-full h-[30%] p-[10px] text-white">{hospitalName}</div>
-    </div>
+      <div className="w-full h-[30%] p-[10px]">{hospitalName}</div>
+    </InteractiveCard>
   );
 }
