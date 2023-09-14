@@ -1,7 +1,6 @@
 "use client";
 import { useReducer } from "react";
 import ProductCard from "./ProductCard";
-import { type } from "os";
 
 export default function CarPanel() {
   const compareReducer = (

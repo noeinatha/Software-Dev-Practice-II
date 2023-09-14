@@ -8,9 +8,9 @@ export function InteractiveCard({
   children: React.ReactNode;
   hospitalName: string;
 }) {
-  function onCarSelected() {
-    alert("You Select " + hospitalName);
-  }
+  // function onCarSelected() {
+  //   alert("You Select " + hospitalName);
+  // }
 
   function onCardMouseAction(event: React.SyntheticEvent) {
     if (event.type == "mouseover") {
@@ -28,8 +28,8 @@ export function InteractiveCard({
 
   return (
     <div
-      className="w-1/5 h-[300px] rounded-lg bg-white shadow-lg"
-      onClick={() => onCarSelected()}
+      className="w-1/5 h-[400px] rounded-lg bg-white shadow-lg"
+      /*onClick={() => onCarSelected()}*/
       onMouseOver={(e) => onCardMouseAction(e)}
       onMouseOut={(e) => onCardMouseAction(e)}
     >
