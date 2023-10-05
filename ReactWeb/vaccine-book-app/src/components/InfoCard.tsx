@@ -29,12 +29,12 @@ export function InfoCard({
       <div className="w-full h-[30%] p-[10px]">
         {hospitalName}
         <div>
-          <Typography component="legend">Controlled</Typography>
+          <Typography component="legend"></Typography>
           <Rating
             name="simple-controlled"
             value={rating}
             onChange={(event, newValue) => {
-              event.stopPropagation;
+              event.preventDefault();
               onRating(newValue);
             }}
           />

@@ -1,6 +1,7 @@
 "use client";
 import { useReducer } from "react";
 import { InfoCard } from "./InfoCard";
+import Link from "next/link";
 
 export default function CardPanel() {
   const ratingReducer = (
@@ -28,6 +29,16 @@ export default function CardPanel() {
     ])
   );
 
+  const mockHospitalRepo = [
+    { hid: "001", name: "Chulalongkorn Hospital", image: "/img/chula.jpg" },
+    { hid: "002", name: "Rajavithi Hospital", image: "/img/rajavithi.jpg" },
+    {
+      hid: "003",
+      name: "Thammasat University Hospital",
+      image: "/img/thammasat.jpg",
+    },
+  ];
+
   return (
     <div>
       <div
@@ -38,44 +49,25 @@ export default function CardPanel() {
           flexWrap: "wrap",
           justifyContent: "space-around",
           alignContent: "space-around",
+          padding: "10px",
         }}
       >
-        <InfoCard
-          hospitalName="Chulalongkorn Hospital"
-          imgSrc="/img/chula.jpg"
-          rating={ratingMap.get("Chulalongkorn Hospital") || 0}
-          onRating={(rating: number) =>
-            dispatchrating({
-              type: "update",
-              hospitalName: "Chulalongkorn Hospital",
-              newRating: rating,
-            })
-          }
-        />
-        <InfoCard
-          hospitalName="Rajavithi Hospital"
-          imgSrc="/img/rajavithi.jpg"
-          rating={ratingMap.get("Rajavithi Hospital") || 0}
-          onRating={(rating: number) =>
-            dispatchrating({
-              type: "update",
-              hospitalName: "Rajavithi Hospital",
-              newRating: rating,
-            })
-          }
-        />
-        <InfoCard
-          hospitalName="Thammasat University Hospital"
-          imgSrc="/img/thammasat.jpg"
-          rating={ratingMap.get("Thammasat University Hospital") || 0}
-          onRating={(rating: number) =>
-            dispatchrating({
-              type: "update",
-              hospitalName: "Thammasat University Hospital",
-              newRating: rating,
-            })
-          }
-        />
+        {mockHospitalRepo.map((hosItem) => (
+          <Link href={`/hospital/${hosItem.hid}`} className="w-1/5">
+            <InfoCard
+              hospitalName={hosItem.name}
+              imgSrc={hosItem.image}
+              rating={ratingMap.get(hosItem.name) || 0}
+              onRating={(rating: number) =>
+                dispatchrating({
+                  type: "update",
+                  hospitalName: hosItem.name,
+                  newRating: rating,
+                })
+              }
+            />
+          </Link>
+        ))}
       </div>
       <div className="pl-[20px] w-full text-xl font-medium">Rating:</div>
       {Array.from(ratingMap).map((element) => (

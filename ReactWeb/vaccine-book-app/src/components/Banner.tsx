@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Banner() {
   const cover = [
@@ -10,6 +11,7 @@ export default function Banner() {
     "/img/cover4.jpg",
   ];
   const [index, setIndex] = useState(0);
+  const router = useRouter();
   return (
     <div
       className="w-screen h-[40vh] p-20 mt-0 relative block flex justify-center items-top"
@@ -28,6 +30,15 @@ export default function Banner() {
           เครือโรงพยาบาล Software Development Practice II
         </h3>
       </div>
+      <button
+        className="bg-white text-cyan-600 border border-cyan-600 font-semibold py-2 px-2 m-2 rounded z-30 absolute bottom-0 right-0 hover:bg-cyan-600 hover:text-white hover:boder-transparent"
+        onClick={(e) => {
+          e.stopPropagation();
+          router.push("/hospital");
+        }}
+      >
+        Select Your Hospital
+      </button>
     </div>
   );
 }
