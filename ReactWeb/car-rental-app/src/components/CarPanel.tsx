@@ -1,12 +1,22 @@
 "use client";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import ProductCard from "./ProductCard";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import getCars from "@/libs/getCars";
 
 export default function CarPanel() {
-  const countRef = useRef(0);
+  const [carResponse, setCarResponse] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const cars = await getCars();
+      setCarResponse(cars);
+    };
+    fetchData();
+  }, []);
+
+  const countRef = useRef(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const compareReducer = (
@@ -34,12 +44,14 @@ export default function CarPanel() {
   /**
    *  Mock Data for Demonstration Only
    */
-  const mockCarRepo = [
+  /*const mockCarRepo = [
     { cid: "001", name: "Honda Civic", image: "/img/civic.jpg" },
     { cid: "002", name: "Honda Accord", image: "/img/accord.jpg" },
     { cid: "003", name: "Toyota Fortuner", image: "/img/fortuner.jpg" },
     { cid: "004", name: "Tesla Model 3", image: "/img/tesla.jpg" },
-  ];
+  ];*/
+
+  if (!carResponse) return <p>Car Panel is Loading ...</p>;
 
   return (
     <div>
@@ -54,11 +66,11 @@ export default function CarPanel() {
           padding: "10px",
         }}
       >
-        {mockCarRepo.map((carItem) => (
-          <Link href={`/car/${carItem.cid}`} className="w-1/5">
+        {carResponse.data.map((carItem: Object) => (
+          <Link href={`/car/${carItem.id}`} className="w-1/5">
             <ProductCard
-              carName={carItem.name}
-              imgSrc={carItem.image}
+              carName={carItem.model}
+              imgSrc={carItem.picture}
               onCompare={(car: string) =>
                 dispatchCompare({ type: "add", carName: car })
               }
