@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-import { Typography } from "@mui/material";
 import { Rating } from "@mui/material";
-import { InteractiveCard } from "./InteractiveCard";
+import InteractiveCard from "./InteractiveCard";
 
 export function InfoCard({
   hospitalName,
@@ -13,33 +11,37 @@ export function InfoCard({
 }: {
   hospitalName: string;
   imgSrc: string;
-  rating: number;
-  onRating: Function;
+  rating?: number;
+  onRating?: Function;
 }) {
   return (
-    <InteractiveCard hospitalName={hospitalName}>
-      <div className="w-full h-[70%] relative rounded-t-lg">
+    <InteractiveCard>
+      <div className="w-full h-[75%] relative rounded-t-lg ">
         <Image
           src={imgSrc}
-          alt="Vaccine Infomation"
+          alt="Hospital Picture"
           fill={true}
           className="object-cover rounded-t-lg"
         />
       </div>
-      <div className="w-full h-[30%] p-[10px]">
-        {hospitalName}
-        <div>
-          <Typography component="legend"></Typography>
-          <Rating
-            name="simple-controlled"
-            value={rating}
-            onChange={(event, newValue) => {
-              event.preventDefault();
-              onRating(newValue);
-            }}
-          />
-        </div>
-      </div>
+      <div className="w-full h-[10%] p-[10px] font-normal">{hospitalName}</div>
+      {onRating ? (
+        <Rating
+          className="w-full h-[10%] py-2 pl-2"
+          name="controlled"
+          value={rating}
+          onChange={(event, newValue) => {
+            event.stopPropagation();
+            event.preventDefault();
+            onRating(newValue);
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        />
+      ) : (
+        ""
+      )}
     </InteractiveCard>
   );
 }

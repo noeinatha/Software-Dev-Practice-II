@@ -52,16 +52,16 @@ export default function CardPanel() {
           padding: "10px",
         }}
       >
-        {mockHospitalRepo.map((hosItem) => (
-          <Link href={`/hospital/${hosItem.hid}`} className="w-1/5">
+        {mockHospitalRepo.map((hospitalItem) => (
+          <Link href={`/hospital/${hospitalItem.hid}`} className="w-1/5">
             <InfoCard
-              hospitalName={hosItem.name}
-              imgSrc={hosItem.image}
-              rating={ratingMap.get(hosItem.name) || 0}
+              hospitalName={hospitalItem.name}
+              imgSrc={hospitalItem.image}
+              rating={ratingMap.get(hospitalItem.name) || 0}
               onRating={(rating: number) =>
                 dispatchrating({
                   type: "update",
-                  hospitalName: hosItem.name,
+                  hospitalName: hospitalItem.name,
                   newRating: rating,
                 })
               }
