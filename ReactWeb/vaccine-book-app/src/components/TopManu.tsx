@@ -7,30 +7,32 @@ import { Link } from "@mui/material";
 export default async function TopMenu() {
   const session = await getServerSession(authOptions);
   return (
-    <div className="h-[50px] bg-white fixed top-0 right-0 left-0 z-30 border-2 border-solid border-gray-400 flex flex-row-reverse">
-      {session ? (
-        <Link href="/api/auth/signout">
-          <div className="flex items-center absolute left-0 h-full px-2 text cyan-600 text-sm">
-            Sign-Out of {session.user?.name}
-          </div>
-        </Link>
-      ) : (
-        <Link href="/api/auth/signin">
-          <div className="flex items-center absolute left-0 h-full px-2 text cyan-600 text-sm">
-            Sign-In
-          </div>
-        </Link>
-      )}
-
+    <div className="h-12 bg-white fixed top-0 left-0 right-0 z-30 flex flex-row-reverse border-b border-gray-400">
       <Image
         src={"/img/vaccine-6592893_1280.png"}
-        className="h-[46px] w-auto"
+        className="h-full w-auto"
         alt="logo"
         width={0}
         height={0}
         sizes="100vh"
-      ></Image>
-      <TopManuItem title="Booking" pageRef="/booking"></TopManuItem>
+      />
+      <TopManuItem title="Booking" pageRef="/booking" />
+      <div className="flex flex-row absolute left-0 h-full">
+        {session ? (
+          <Link href="api/auth/signout">
+            <div className="flex items-center h-full px-2 text-cyan-600 text-sm bg-neutral-200 font-semibold">
+              Sign-Out
+            </div>
+          </Link>
+        ) : (
+          <Link href="api/auth/signin">
+            <div className="flex items-center  h-full px-2 text-cyan-600 text-sm bg-neutral-200 font-semibold">
+              Sign-In
+            </div>
+          </Link>
+        )}
+        <TopManuItem title="My Booking" pageRef="/mybooking" />
+      </div>
     </div>
   );
 }
