@@ -1,7 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import getUserProfile from "@/libs/getUserProfile";
-import { useSearchParams } from "next/navigation";
 import BookingForm from "@/components/BookingForm";
 
 export default async function Booking() {
